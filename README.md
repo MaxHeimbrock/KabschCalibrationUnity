@@ -3,6 +3,7 @@ Unity package to align different coordinate systems using the kabsch algorithm. 
 
 # Background
 ![alt text](https://www.informatik.uni-wuerzburg.de/fileadmin/_processed_/e/0/csm_Portrait_Uni_Wuerzburg_cropped_fea9744db5.jpg)
+![alt text](https://github.com/MaxHeimbrock/KabschCalibrationUnity/blob/main/ezgif-2-a7eb01744123.gif)
 
 # Usage
 Import the Unity package and you will find a sample scene. 
