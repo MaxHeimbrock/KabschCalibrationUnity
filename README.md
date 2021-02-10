@@ -2,8 +2,6 @@
 Unity package to align different coordinate systems using the kabsch algorithm. Can be used to align real world objects with VR / AR tracking systems.
 
 # Background
-[![](https://github.com/MaxHeimbrock/KabschCalibrationUnity/blob/main/ezgif-2-a7eb01744123.gif)](#)
-
 <a href="#"><img src="https://github.com/MaxHeimbrock/KabschCalibrationUnity/blob/main/ezgif-2-a7eb01744123.gif" width="900" height="511"/>
 # Usage
 Import the Unity package and you will find a sample scene. 
