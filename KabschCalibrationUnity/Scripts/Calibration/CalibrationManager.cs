@@ -36,13 +36,6 @@ public class CalibrationManager : MonoBehaviour
 
     public float calibrationDistanceError = 0;
 
-    public enum CalibrationMode
-    {
-        calibrateRoom, calibrateTooltip
-    };
-
-    public CalibrationMode currentCalibrationMode = CalibrationMode.calibrateRoom;
-
     #region GETTER AND SETTER
 
     public CalibrateObject ObjectToCalibrate
@@ -83,6 +76,7 @@ public class CalibrationManager : MonoBehaviour
         }
 
         targetPointTopParentInScene = new GameObject("TargetPoints");
+        //targetPointTopParentInScene.transform.SetParent(GameObject.FindGameObjectWithTag("SteamVR").transform);
         targetPointParents = new GameObject[alignObjectsInScene.Length];
         
         for (int i = 0; i < alignObjectsInScene.Length; i++)
@@ -97,25 +91,25 @@ public class CalibrationManager : MonoBehaviour
         FetchSourceAndTargetPointsToDisplay();
         ChangeColorOfPointer();
 
-        if (currentCalibrationMode == CalibrationMode.calibrateRoom)
+        // For testing
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            // For testing
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                currentObjectToCalibrate.AddTargetPoint(CreateDummySourcePoint(dummyIndex), targetPointParents[choiceIndex].transform);
-                ChangeColorOfPointer();
-                dummyIndex++;
-            }
-
-            /*
-            TODO: Add calibration input here, depending on VR system used - example is for SteamVR 1.0
-            if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(SteamVR_Input_Sources.RightHand))
-            {
-                currentObjectToCalibrate.AddTargetPoint(tooltip.position, targetPointParents[choiceIndex].transform);
-                ChangeColorOfPointer();
-            }
-            */
+            currentObjectToCalibrate.AddTargetPoint(CreateDummySourcePoint(dummyIndex), targetPointParents[choiceIndex].transform);
+            ChangeColorOfPointer();
+            dummyIndex++;
         }
+
+        throw new Exception("No input method implemented yet.");
+        
+        /*
+        TODO: Add calibration input here, depending on VR system used - example is for SteamVR 1.0.        
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            currentObjectToCalibrate.AddTargetPoint(tooltip.position, targetPointParents[choiceIndex].transform);
+            ChangeColorOfPointer();
+        }
+        */
+        
     }
 
     private Vector3 CreateDummySourcePoint(int number)

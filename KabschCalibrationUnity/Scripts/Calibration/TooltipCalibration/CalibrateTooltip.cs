@@ -42,14 +42,14 @@ public class CalibrateTooltip : MonoBehaviour
     {
         if (calibrationActive)
         {
-            // for testing
+            // input from Keyboard
             if (Input.GetKeyDown(KeyCode.T))
             {
                 AddOne();
             }
             
             /*
-            TODO: Add calibration input here, depending on VR system used - example is for SteamVR 1.0 
+            Example to add custom input here, depending on VR system used - example is for SteamVR 1.0 
             if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(SteamVR_Input_Sources.LeftHand ))
             {
                 AddOne();
@@ -127,15 +127,6 @@ public class CalibrateTooltip : MonoBehaviour
     public void SetActive(bool active)
     {
         calibrationActive = active;
-        if (active)
-        {
-            calibrationManager.currentCalibrationMode = CalibrationManager.CalibrationMode.calibrateTooltip;
-        }
-        else
-        {
-            calibrationManager.currentCalibrationMode = CalibrationManager.CalibrationMode.calibrateRoom;
-        }
-
     }
 
     public bool GetActive()
