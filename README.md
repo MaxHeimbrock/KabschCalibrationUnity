@@ -50,7 +50,7 @@ Follow the insructions from [the original Repo](https://github.com/anthonysteed/
 The input device has to be referenced as the controller in the inspector. Go into Play Mode and press "Start Calibration". You can press "T" as input on the keyboard or add a custom input in the script.
 
 
-<a href="#"><img src="https://github.com/anthonysteed/CalibrateTooltip/blob/master/controller.png" width="320" height="211"/>
+<a href="#"><img src="Documentation/tooltip.png" width="320" height="211"/>
 	
 
 # 4. Add Custom Input
