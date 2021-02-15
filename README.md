@@ -1,6 +1,8 @@
 
 # KabschCalibrationUnity
 Unity package to find transform between different coordinate systems using the Kabsch Algorithm. Can be used to align real world objects with VR / AR tracking systems.\
+This project was realized at the Media Informatics group at the University of Wuerzburg https://www.informatik.uni-wuerzburg.de/en/mi/home/.
+
 The C# Kabsch solver is taken from [https://github.com/zalo/MathUtilities/tree/master/Assets/Kabsch](https://github.com/zalo/MathUtilities/tree/master/Assets/Kabsch).\
 The Tooltip Calibration is taken from [https://github.com/anthonysteed/CalibrateTooltip](https://github.com/anthonysteed/CalibrateTooltip).
 
