@@ -10,7 +10,7 @@ The Tooltip Calibration is taken from [https://github.com/anthonysteed/Calibrate
 
 The [Kabsch Algorithm](http://scripts.iucr.org/cgi-bin/paper?S0567739476001873) needs at least four 3D-3D correspondences from two different coordinate systems, to find the transformation between them. The algorithm is more stable, the more correspondences are provided. Also the points should be spread as much as possible.
 
-<a href="#"><img src="https://github.com/MaxHeimbrock/KabschCalibrationUnity/blob/main/Documentation/kabsch_gif.gif" width="900" height="511"/>
+<a href="#"><img src="Documentation/kabsch_gif.gif" width="900" height="511"/>
 
 
 # Components
