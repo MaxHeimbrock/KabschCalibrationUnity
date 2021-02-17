@@ -47,7 +47,7 @@ For better accuracy, the input device should have a calibrated tooltip.
 
 Follow the insructions from [the original Repo](https://github.com/anthonysteed/CalibrateTooltip). 
 
-The input device has to be referenced as the controller in the inspector. Go into Play Mode and press "Start Calibration". You can press "T" as input on the keyboard or add a custom input in the script.
+The input device has to be referenced as the controller in the inspector. Go into Play Mode and press "Start Calibration". You can press "T" as input on the keyboard or add a custom input in the script. Make sure, that none of the parents of the controller are rotated! This means, the tooltip calibration should be done seperate or before rotating the tracking coordinate system by a calibration.
 
 
 <a href="#"><img src="Documentation/Vive_Tooltip.jpg" width="320" height="211"/>
