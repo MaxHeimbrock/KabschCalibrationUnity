@@ -67,7 +67,14 @@ public class TransformPersistence : MonoBehaviour
 
 		foreach (CalibrateObject obj in objects) 
 		{
-			AddTransform(obj.transform);
+            if (obj.name.Equals("[Environment]"))
+            {
+				AddTransform(GameObject.FindGameObjectWithTag("SteamVR").transform);
+            }
+            else
+            {
+				AddTransform(obj.transform);
+			}
 		}
 	}
 
@@ -116,17 +123,7 @@ public class TransformPersistence : MonoBehaviour
 			} 
 			if (transInScene.GetComponent<CalibrateObject>() == null)
 			{
-                if (transInScene.name.Equals("[SteamVRComponents]") == true)
-                {
-					Debug.Log("Set transformation for GameObject " + transInScene.name + " (" + currentTransformInfo.name + ")");
-					transInScene.transform.position = currentTransformInfo.position;
-					transInScene.transform.rotation = currentTransformInfo.rotation;
-				}
-                else
-                {
-					Debug.Log ("GameObject with name " + currentTransformInfo.name + " has no AlignObject script. Maybe the name is not unique.");
-                }
-
+				Debug.Log ("GameObject with name " + currentTransformInfo.name + " has no AlignObject script. Maybe the name is not unique.");
 				continue;
 			}
 			

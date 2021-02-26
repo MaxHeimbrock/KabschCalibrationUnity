@@ -126,8 +126,8 @@ public class CalibrateObject : MonoBehaviour
 
 	public void SaveOriginalPosition ()
 	{
-			origPosition = transform.position;
-			origRotation = transform.rotation;
+		origPosition = transform.position;
+		origRotation = transform.rotation;
 	}
 	
 	public void AddSourcePoint(Transform point)

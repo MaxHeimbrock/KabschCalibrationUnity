@@ -11,18 +11,11 @@ public class CalibrateTooltip : MonoBehaviour
 {
 
     public GameObject controller;     // The controller to add a tooltip
-    //public Mesh tooltipMesh;          // The mesh to use
     public float tooltipSize = 0.01f;   // Local scale of the mesh
 
     [Space(10)]
     public int index;
 
-    // For export to python test script
-    private StringBuilder rotBuilder;
-    private StringBuilder posBuilder;
-
-    // For creation of the tooltip object
-    private GameObject tooltip;
     private Renderer meshRenderer;
 
     // For the inverse calculation
@@ -35,7 +28,6 @@ public class CalibrateTooltip : MonoBehaviour
     void Start()
     {
         calibrationManager = GetComponent<CalibrationManager>();
-        tooltip = calibrationManager.tooltip.gameObject;
     }
 
     void Update()
@@ -64,16 +56,6 @@ public class CalibrateTooltip : MonoBehaviour
         print("set tippoint");
         index++;
         Matrix4x4 mat = controller.transform.localToWorldMatrix;
-
-        { // For debugging & verification in Python tool
-            Debug.Log("Add point (" + index + ")");
-            posBuilder.Append(controller.transform.localPosition.x + "," + controller.transform.localPosition.y + "," + controller.transform.localPosition.z + ",");
-            rotBuilder.Append(mat.m00 + "," + mat.m01 + "," + mat.m02 + "," +
-                mat.m10 + "," + mat.m11 + "," + mat.m12 + "," +
-                mat.m20 + "," + mat.m21 + "," + mat.m22 + ",");
-            Debug.Log(posBuilder.ToString());
-            Debug.Log(rotBuilder.ToString());
-        }
 
         Matrix row = Matrix.Build.Dense(3, 3);
         row[0, 0] = -mat.m00;
@@ -107,20 +89,15 @@ public class CalibrateTooltip : MonoBehaviour
         {
             Matrix inv = m.PseudoInverse();
             Matrix res = inv.Multiply(v);
-            tooltip.transform.localPosition = new Vector3(res[3, 0], res[4, 0], res[5, 0]);
-            Debug.Log("Offset: " + tooltip.transform.localPosition.x + " " + tooltip.transform.localPosition.y + " " + tooltip.transform.localPosition.z);
-
-            calibrationManager.tooltip = tooltip.transform;
+            calibrationManager.tooltip.position = new Vector3(res[3, 0], res[4, 0], res[5, 0]);
             SetActive(false);
         }
     }
 
     public void Clear()
     {
-        rotBuilder = new StringBuilder();
-        posBuilder = new StringBuilder();
         index = 0;
-        tooltip.transform.localPosition = new Vector3(0f, 0f, 0f);
+        calibrationManager.tooltip.localPosition = new Vector3(0f, 0f, 0f);
         Debug.Log("Reset");
     }
 

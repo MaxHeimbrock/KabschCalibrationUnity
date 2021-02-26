@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 668888373}
   - component: {fileID: 668888372}
   m_Layer: 0
-  m_Name: TargetCube
+  m_Name: RealWorldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 769935584}
   - component: {fileID: 769935583}
   m_Layer: 0
-  m_Name: SourceCube
+  m_Name: VirtualObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
